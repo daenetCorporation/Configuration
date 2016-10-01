@@ -1,0 +1,26 @@
+{
+  "buildOptions": {
+    "warningsAsErrors": true,
+    //"keyFile": "\"../../tools/Key.snk," this crashed VS
+    "copyToOutput": [ "TestSettings1.json", "TestSettings2.json" ]
+  },
+  "dependencies": {
+    "dotnet-test-xunit": "2.2.0-*",
+    "Microsoft.Extensions.Configuration": "1.1.0-*",
+    "Microsoft.Extensions.Configuration.StronglyTyped": "1.0.0-*",
+    "xunit": "2.2.0-*"
+  },
+
+ "frameworks": {
+  "netcoreapp1.0": {
+    "dependencies": {
+      "Microsoft.NETCore.App": {
+        "version": "1.0.0-*",
+        "type": "platform"
+      }
+    }
+  },
+    "net451": {}
+  },
+  "testRunner": "xunit"
+}

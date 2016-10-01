@@ -1,0 +1,12 @@
+﻿{
+
+  "ComplexType": {
+    "SomeInt": 77,
+    "SomeFloat": 123.567,
+    "SomeString": "Hello :)",
+    "SomeGuid": "3699e0ae-8f4b-4441-a739-690ada2735fc"
+  },
+  "TestInt": 32767,
+  "TestDouble": 77.71,
+  "TestLong": 65538
+}

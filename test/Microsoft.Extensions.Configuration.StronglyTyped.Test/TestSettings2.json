@@ -1,0 +1,11 @@
+﻿{
+  "Test": 10,
+
+  "MySettingClass": {
+    "SomeInt": 77,
+    "SomeString": "Hello :)"
+  },
+
+  "TestFloat": 77.71,
+  "TestLong": 65538
+}
