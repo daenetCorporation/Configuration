@@ -82,5 +82,43 @@ namespace Microsoft.Extensions.Configuration.StronglyTyped.Test
             Assert.True(mySettVAl.SomeString == "Hello :)");
             Assert.True(new Guid(mySettVAl.SomeGuid) == new Guid("3699e0ae-8f4b-4441-a739-690ada2735fc"));
         }
+
+        /// <summary>
+        /// Demonstrates and Tests loading of typed configuration from file.
+        /// </summary>
+        [Fact]
+
+        public void LoadConfig2NestedFile()
+        {
+
+            ConfigurationBuilder cfgBuilder = new ConfigurationBuilder();
+
+
+            cfgBuilder.AddStronglyTypedConfigFile("TestSettings2.json");
+
+            var configRoot = cfgBuilder.Build();
+
+            int intVal = configRoot.GetStronglyTypedValue<int>("TestInt");
+            Assert.True(intVal == 10);
+
+            double dblVal = configRoot.GetStronglyTypedValue<double>("TestDouble");
+            Assert.True(dblVal == 77.71);
+
+            double dblLong = configRoot.GetStronglyTypedValue<double>("TestLong");
+            Assert.True(dblLong == 65538);
+
+            MySettings2 mySett2 = configRoot.GetStronglyTypedValue<MySettings2>("MySettings2");
+
+
+            Assert.True(mySett2.SomeFloat == (float)0.99);
+            Assert.True(mySett2.SomeInt == 77);
+            Assert.True(mySett2.SomeString == "Hello :)");
+
+
+            Assert.True(mySett2.Settings.SomeString == "Hello from nested :)");
+            Assert.True(mySett2.Settings.SomeFloat == (float)71.701);
+            Assert.True(mySett2.Settings.SomeInt == 88);
+        }
+
     }
 }

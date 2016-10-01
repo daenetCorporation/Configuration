@@ -1,11 +1,19 @@
 ﻿{
-  "Test": 10,
+  "TestInt": 10,
+  "TestDouble": 77.71,
+  "TestLong": 65538,
 
-  "MySettingClass": {
+  "MySettings2": {
     "SomeInt": 77,
-    "SomeString": "Hello :)"
-  },
+    "SomeFloat": 0.99,
+    "SomeString": "Hello :)",
+    "Settings": {
+      "SomeInt": 88,
+      "SomeFloat": 71.701,
+      "SomeString": "Hello from nested :)",
+      "SomeGuid": "3699e0ae-8f4b-4441-a739-690ada2735fc"
+    }
+  }
 
-  "TestFloat": 77.71,
-  "TestLong": 65538
+
 }
