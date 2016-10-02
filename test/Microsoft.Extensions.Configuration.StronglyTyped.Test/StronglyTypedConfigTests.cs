@@ -1,9 +1,11 @@
-﻿using System;
+﻿// Copyright (c) .NET Foundation. All rights reserved.
+// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license informationusing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Xunit;
+using System;
 
 namespace Microsoft.Extensions.Configuration.StronglyTyped.Test
 {
@@ -13,7 +15,6 @@ namespace Microsoft.Extensions.Configuration.StronglyTyped.Test
         /// Demonstrates and Tests loading of typed configuration from string.
         /// </summary>
         [Fact]
-
         public void LosdConfigFromString()
         {
 
@@ -28,7 +29,6 @@ namespace Microsoft.Extensions.Configuration.StronglyTyped.Test
                              ""TestDouble"" : 23.445}";
 
             ConfigurationBuilder cfgBuilder = new ConfigurationBuilder();
-
 
             cfgBuilder.AddStronglyTypedConfig(config);
 
@@ -51,15 +51,12 @@ namespace Microsoft.Extensions.Configuration.StronglyTyped.Test
 
 
         /// <summary>
-        /// Demonstrates and Tests loading of typed configuration from file.
+        /// Demonstrates and Tests loading of typed configuration from JSON file.
         /// </summary>
         [Fact]
-
         public void LoadConfig1FromFile()
         {
-
             ConfigurationBuilder cfgBuilder = new ConfigurationBuilder();
-
 
             cfgBuilder.AddStronglyTypedConfigFile("TestSettings1.json");
 
@@ -76,23 +73,23 @@ namespace Microsoft.Extensions.Configuration.StronglyTyped.Test
 
             MySettings mySettVAl = configRoot.GetStronglyTypedValue<MySettings>("ComplexType");
 
-            
+
             Assert.True(mySettVAl.SomeFloat == (float)123.567);
             Assert.True(mySettVAl.SomeInt == 77);
             Assert.True(mySettVAl.SomeString == "Hello :)");
             Assert.True(new Guid(mySettVAl.SomeGuid) == new Guid("3699e0ae-8f4b-4441-a739-690ada2735fc"));
         }
 
+
         /// <summary>
-        /// Demonstrates and Tests loading of typed configuration from file.
+        /// Demonstrates and Tests loading of typed configuration from JSON file,
+        /// which contains complex type with nested complex type.
         /// </summary>
         [Fact]
-
         public void LoadConfig2NestedFile()
         {
 
             ConfigurationBuilder cfgBuilder = new ConfigurationBuilder();
-
 
             cfgBuilder.AddStronglyTypedConfigFile("TestSettings2.json");
 
@@ -109,11 +106,9 @@ namespace Microsoft.Extensions.Configuration.StronglyTyped.Test
 
             MySettings2 mySett2 = configRoot.GetStronglyTypedValue<MySettings2>("MySettings2");
 
-
             Assert.True(mySett2.SomeFloat == (float)0.99);
             Assert.True(mySett2.SomeInt == 77);
             Assert.True(mySett2.SomeString == "Hello :)");
-
 
             Assert.True(mySett2.Settings.SomeString == "Hello from nested :)");
             Assert.True(mySett2.Settings.SomeFloat == (float)71.701);
